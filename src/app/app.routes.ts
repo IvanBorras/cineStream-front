@@ -1,3 +1,68 @@
 import { Routes } from '@angular/router';
+// Importacion de componentes
+import { HomeComponent } from './pages/home/home.component';
+import { HomeLoggedComponent } from './pages/home/home-logged/home-logged.component';
+import { RentComponent } from './pages/rent/rent.component';
+import { MeComponent } from './pages/me/me.component';
+import { MyBookingsComponent } from './pages/me/my-bookings/my-bookings.component';
+import { MyInfoComponent } from './pages/me/my-info/my-info.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { BookingsComponent } from './pages/admin/bookings/bookings.component';
+import { CatalogueComponent } from './pages/admin/catalogue/catalogue.component';
+import { UsersComponent } from './pages/admin/users/users.component';
+// importacion de guardas
+import { isLoggedGuard } from './guards/is-logged.guard';
+import { isNotLoggedGuard } from './guards/is-not-logged.guard';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {
+        path: "",
+        component: HomeComponent
+    },
+    {
+        path: "my-home",
+        component: HomeLoggedComponent,
+        canActivate: [isLoggedGuard],
+    },
+    {
+        path: "rent/:id",
+        component: RentComponent,
+        canActivate: [isLoggedGuard],
+    },
+    {
+        path: "me",
+        component: MeComponent,
+        canActivate: [isLoggedGuard],
+        children:[
+            {
+                path: "my-bookings",
+                component: MyBookingsComponent
+            },
+            {
+                path: "my-info",
+                component: MyInfoComponent
+            }
+        ]
+    },
+    {
+        path: "admin",
+        component: AdminComponent,
+        canActivate: [isLoggedGuard],
+        children:[
+            {
+                path: "bookings",
+                component: BookingsComponent
+            },
+            {
+                path: "vehicles",
+                component: CatalogueComponent
+            },
+            {
+                path: "users",
+                component: UsersComponent
+            },
+        ]
+    }
+
+
+];
