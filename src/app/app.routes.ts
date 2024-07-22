@@ -10,6 +10,8 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { BookingsComponent } from './pages/admin/bookings/bookings.component';
 import { CatalogueComponent } from './pages/admin/catalogue/catalogue.component';
 import { UsersComponent } from './pages/admin/users/users.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 // importacion de guardas
 import { isLoggedGuard } from './guards/is-logged.guard';
 import { isNotLoggedGuard } from './guards/is-not-logged.guard';
@@ -23,6 +25,16 @@ export const routes: Routes = [
         path: "my-home",
         component: HomeLoggedComponent,
         canActivate: [isLoggedGuard],
+    },
+    {
+        path: "login",
+        component: LoginComponent,
+        canActivate: [isNotLoggedGuard]
+    },
+    {
+        path: "signup",
+        component: SignupComponent,
+        canActivate: [isNotLoggedGuard]
     },
     {
         path: "rent/:id",
