@@ -4,6 +4,7 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
