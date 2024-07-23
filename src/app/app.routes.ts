@@ -66,7 +66,7 @@ export const routes: Routes = [
                 component: BookingsComponent
             },
             {
-                path: "vehicles",
+                path: "catalogue",
                 component: CatalogueComponent
             },
             {
