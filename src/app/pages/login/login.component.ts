@@ -34,6 +34,7 @@ export class LoginComponent {
       next: (response)=>{
         const loginResponse: LoginResponse = response as LoginResponse
         const user: User = { token: loginResponse.token, id: loginResponse.id, role: loginResponse.role}
+        console.log(loginResponse);
         this.authService.saveUser(user)
         this.router.navigateByUrl("/")
       },
