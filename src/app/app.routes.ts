@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 // Importacion de componentes
 import { HomeComponent } from './pages/home/home.component';
-import { HomeLoggedComponent } from './pages/home/home-logged/home-logged.component';
+import { HomeCatalogueComponent } from './pages/home/home-catalogue/home-catalogue.component';
 import { RentComponent } from './pages/rent/rent.component';
 import { MeComponent } from './pages/me/me.component';
 import { MyBookingsComponent } from './pages/me/my-bookings/my-bookings.component';
@@ -23,7 +23,7 @@ export const routes: Routes = [
     },
     {
         path: "my-home",
-        component: HomeLoggedComponent,
+        component: HomeCatalogueComponent,
         canActivate: [isLoggedGuard],
     },
     {
@@ -36,7 +36,7 @@ export const routes: Routes = [
         component: SignupComponent,
         canActivate: [isNotLoggedGuard]
     },
-    {
+    { 
         path: "rent/:id",
         component: RentComponent,
         canActivate: [isLoggedGuard],

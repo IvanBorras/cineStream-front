@@ -1,59 +1,54 @@
 export interface Movie {
+    title: {
+        type: string;
+        required: true;
+      };
+      director: {
+        type: string;
+        required: true;
+      };
+      actors: {
+        type: string;
+        required: true;
+      };
+      year: {
+        type: number;
+        required: true;
+      };
+      thema: {
+        type: string;
+        required: true;
+      };
+      synopsis: {
+        type: string;
+        required: true;
+      };
+      image: {
+        type: string;
+        required: true;
+      };
+      valoration: {
+        type: number;
+        required: true;
+      };
+      ageRestriction: {
+        type: string;
+        required: true;
+      };
+      trailer: {
+        type: string;
+        required: true;
+      };
+      pricePerDay: {
+        type: number;
+        required: true;
+      };
+      available: {
+        type: boolean;
+        default: true;
+      };
 
 }
 
 
 
-
-// title: {
-//     type: String,
-//     required: true
-// },
-// director: {
-//     type: String,
-//     required: true
-// },
-// actors:{
-//     type: String,
-//     required: true,
-// },
-// year:{
-//     type: Number,
-//     required: true,
-// },
-// thema: {
-//     type: String,
-//     required: true
-// },
-// synopsis: {
-//     type: String,
-//     required: true
-// },
-// image: {
-//     type: String,
-//     required: true
-// },
-// valoration: {
-//     type: Number,
-//     required: true
-// },
-// ageRestriction: {
-//     type: String,
-//     required: true
-// },
-// trailer: {
-//     type: String,
-//     required: true
-// },
-// pricePerDay: {
-//     type: Number,
-//     required: true
-// },
-// available: {
-//     type: Boolean,
-//     default: true
-// }
-
-// converttir a typesscript
-
-// https://transform.tools/json-to-typescript

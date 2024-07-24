@@ -9,7 +9,7 @@ import { User } from '../interfaces/user';
 export class AuthService {
 
   user: User|null = null
-  url: string = "http://localhost:3000/api/users"
+  url: string = "http://localhost:4040/api/users"
 
 
   constructor(private http : HttpClient, private cookieService: CookieService) {
@@ -23,7 +23,7 @@ export class AuthService {
     return this.http.post(
       `${this.url}/register`,
       {
-        name: name,
+        name: name, 
         email: email,
         password: pwd
       }
