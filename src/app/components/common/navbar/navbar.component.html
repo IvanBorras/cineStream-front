@@ -18,20 +18,7 @@
             <a class="nav-link" routerLink="/signup">Registrarse</a>
           </li>
         }
-        @else {
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Mi perfil
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/me/my-bookings">Mis reservas</a></li>
-              <li><a class="dropdown-item" routerLink="/me/my-info">Mi información</a></li>
-         
-            </ul>
-          </li>
-            
-          @if(authService.user != null){
-            @if(authService.user.role == "admin"){
+        @else if (authService.user.role == 'admin'){
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Gestión
@@ -43,8 +30,22 @@
              
                 </ul>
               </li>
+              <li class="nav-item">
+                <button class="nav-link" (click)="authService.deleteUser()">Cerrar sesión</button>
+              </li>
             }
-          }
+            @else {
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Mi perfil
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" routerLink="/me/my-bookings">Mis reservas</a></li>
+                  <li><a class="dropdown-item" routerLink="/me/my-info">Mi información</a></li>
+             
+                </ul>
+              </li>
+          
 
           <li class="nav-item">
             <button class="nav-link" (click)="authService.deleteUser()">Cerrar sesión</button>

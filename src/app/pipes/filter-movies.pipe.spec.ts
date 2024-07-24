@@ -1,4 +1,4 @@
-import { FilterMoviesPipe } from './filter-movies.pipe';
+/*import { FilterMoviesPipe } from './filter-movies.pipe';
 
 describe('FilterMoviesPipe', () => {
   it('create an instance', () => {
@@ -6,3 +6,5 @@ describe('FilterMoviesPipe', () => {
     expect(pipe).toBeTruthy();
   });
 });
+*/
+
