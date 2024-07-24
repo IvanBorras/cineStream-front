@@ -6,3 +6,4 @@ describe('FormatDatePipe', () => {
     expect(pipe).toBeTruthy();
   });
 });
+

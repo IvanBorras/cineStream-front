@@ -10,15 +10,16 @@ export class AuthService {
 
   user: User|null = null
   url: string = "http://localhost:4040/api/users"
-
-
+  
+  
   constructor(private http : HttpClient, private cookieService: CookieService) {
     // rescatar usuario de las cookies
     if(cookieService.check('user')){
       this.user = JSON.parse(cookieService.get('user')) 
     }
   }
-
+  
+  // console.log(user);
   signup(name: string, email: string, pwd: string){
     return this.http.post(
       `${this.url}/register`,
