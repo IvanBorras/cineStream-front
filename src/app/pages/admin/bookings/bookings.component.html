@@ -1,0 +1,32 @@
+<p>bookings works!</p>
+
+
+
+<!--  aqui habria que meter la divisa / canCancel / formtDate  ej 
+  
+    </thead>
+    <tbody>
+      @for(booking of bookings; track booking) {
+        <tr>
+          <td>
+            <button [disabled]="!(booking.startDate | canCancel)" (click)="eliminar(booking._id)" class="btn btn-danger btn-sm me-1">
+              <i class="fa fa-trash"></i>
+            </button>
+            <button [disabled]="!(booking.startDate | canCancel)" (click)="editar(booking._id)" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil"></i>
+            </button>
+          </td>
+          <td>{{ booking.user.email }}</td>
+          <td>{{ booking.user.name }}</td>
+          <td>{{ booking.user.role }}</td>
+          <td>{{ booking.startDate | formatDate }}</td>
+          <td>{{ booking.endDate | formatDate }}</td>
+          
+          <td>{{ booking.price | divisa }}</td>
+          <td>{{ booking.discount }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
+-->
