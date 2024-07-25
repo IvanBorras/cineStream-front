@@ -1,7 +1,7 @@
 export interface Series {
     title: {
         type: string;
-        required: true;
+        
       };
       director: {
         type: string;
@@ -17,7 +17,7 @@ export interface Series {
       };
       thema: {
         type: string;
-        required: true;
+    
       };
       synopsis: {
         type: string;

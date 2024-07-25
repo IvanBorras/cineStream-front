@@ -1,23 +1,15 @@
-/*import { Pipe, PipeTransform } from '@angular/core';
-import { Movie } from '../interfaces/movie'; // Ajusta la ruta si es necesario
+
+import { Pipe, PipeTransform } from '@angular/core';
+import { Movie } from '../interfaces/movie';
 
 @Pipe({
-  name: 'filterMovies',
+  name: 'filtermovies',
   standalone: true
 })
 export class FilterMoviesPipe implements PipeTransform {
 
   transform(value: Movie[], filtro: string): Movie[] {
-    if (!value || !filtro) {
-      return value;
-    }
-
-    const filtroLower = filtro.toLowerCase();
-
-    return value.filter(movie =>
-      movie.title.toLowerCase().includes(filtroLower) ||
-      movie.thema.toLowerCase().includes(filtroLower)
-    );
+    return value.filter(x=> x.thema || x.title)
   }
 
-}*/
+}

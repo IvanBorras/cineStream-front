@@ -1,19 +1,23 @@
+
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../interfaces/movie';
 import { FormsModule } from '@angular/forms';
+import { FilterMoviesPipe } from '../../pipes/filter-movies.pipe';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-movies',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, FilterMoviesPipe , CommonModule] ,
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css'],
  
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
+  filtro: string = '';
   moviesHtml: string = ''; 
 
   constructor(private movieService: MovieService) {}
@@ -33,7 +37,7 @@ export class MoviesComponent implements OnInit {
   generateMoviesHtml(): void {
     this.moviesHtml = '';
 
-    for (const movie of this.movies) {
+    /*for (const movie of this.movies) {
       this.moviesHtml += `
         <div class="col-md-4">
           <div class="card mb-4">
@@ -46,6 +50,6 @@ export class MoviesComponent implements OnInit {
           </div>
         </div>
       `;
-    }
+    }*/
   }
 }

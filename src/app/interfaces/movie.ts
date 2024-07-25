@@ -1,7 +1,8 @@
 export interface Movie {
+    _id:string,
     title: {
         type: string;
-        required: true;
+        
       };
       director: {
         type: string;
@@ -17,7 +18,7 @@ export interface Movie {
       };
       thema: {
         type: string;
-        required: true;
+        
       };
       synopsis: {
         type: string;
