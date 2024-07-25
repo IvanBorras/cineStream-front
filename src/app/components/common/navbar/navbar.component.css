@@ -1,0 +1,31 @@
+.bg-body-tertiary {
+    background-color: #48D4CA !important;
+}
+
+
+#logo1{
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    
+}
+
+#logo2{
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block; /* Asegura que la imagen no tenga espacio extra alrededor */
+    max-width: 100%; /* Mantiene la imagen responsiva */
+    background: none; /* Elimina cualquier fondo */
+    padding: 0;
+    margin: 0;
+    border: none;
+    }
+
+ul{
+    font-size: 28px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+
