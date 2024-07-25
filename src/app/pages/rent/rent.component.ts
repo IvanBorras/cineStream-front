@@ -6,10 +6,11 @@ import { Movie } from '../../interfaces/movie';
 import { MovieService } from '../../services/movie.service';
 import { AuthService } from '../../services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
-import { SeriesService } from '../../services/series.service';
+import { SerieService } from '../../services/series.service';
 import { BookingService } from '../../services/booking.service';
 import { BookingFormData } from '../../interfaces/booking-form-data';
 import { Series } from '../../interfaces/series';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rent',
@@ -21,13 +22,14 @@ import { Series } from '../../interfaces/series';
 export class RentComponent implements OnDestroy {
   parametro: string | null = null;
   movie: Movie | null = null;
+  series: Series | null = null;
   mostrarCodigoPromocional: boolean = false;
   form!: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieService,
-    private seriesService: SeriesService,
+    private seriesService: SerieService,
     private builder: FormBuilder,
     public authService: AuthService,
     private cookieService: CookieService,
@@ -93,13 +95,15 @@ export class RentComponent implements OnDestroy {
     }
  }
 
- enviar(){
-  this.bookingService.saveBooking(this.vehicle!._id, this.form.value.fechaInicio,
-    this.form.value.fechaFin, this.numDias * this.vehicle!.pricePerDay, 0).subscribe({
+
+
+ enviarPelicula(){
+  this.bookingService.saveMovieBooking(this.movie!._id, this.form.value.fechaInicio,
+    this.form.value.fechaFin, this.numDias * this.movie!.pricePerDay, 0).subscribe({
       next: ()=>{
         Swal.fire({
           title: "Reserva realizada",
-          text: `Tu ${this.vehicle!.brand} ${this.vehicle!.model} está listo`,
+          text: `Tu reserva de ${this.movie!.title} está lista`,
           icon: "success",
           timer: 2000,
           didClose: ()=>{

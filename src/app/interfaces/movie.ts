@@ -1,5 +1,6 @@
 export interface Movie {
-    title: {
+  _id: string,  
+  title: {
         type: string;
         required: true;
       };
