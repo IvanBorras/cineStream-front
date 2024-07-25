@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md  bg-body-tertiary">
+<nav class="navbar navbar-expand-md bg-body-tertiary">
   <div class="container-fluid">
     <img src="../../../../assets/Captura_de_pantalla_2024-07-22_210521.png" alt="CineStream" class="logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,6 +8,15 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/">Inicio</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="catalogueDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Catálogo
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="catalogueDropdown">
+            <li><a class="dropdown-item" routerLink="/catalogue/movies">Películas</a></li>
+            <li><a class="dropdown-item" routerLink="/catalogue/series">Series</a></li>
+          </ul>
         </li>
 
         @if(authService.user === null){
@@ -31,13 +40,11 @@
              
                 </ul>
               </li>
-
-             
               <li class="nav-item">
                 <button class="nav-link" (click)="authService.deleteUser()">Cerrar sesión</button>
               </li>
-            }
-            @else {
+        }
+        @else {
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Mi perfil
@@ -48,14 +55,10 @@
              
                 </ul>
               </li>
-          
-
-          <li class="nav-item">
-            <button class="nav-link" (click)="authService.deleteUser()">Cerrar sesión</button>
-          </li>
+              <li class="nav-item">
+                <button class="nav-link" (click)="authService.deleteUser()">Cerrar sesión</button>
+              </li>
         }
-        
-       
       </ul>
     </div>
   </div>

@@ -1,16 +1,23 @@
 /*import { Pipe, PipeTransform } from '@angular/core';
-import { Movie } from '../interfaces/movie';
+import { Movie } from '../interfaces/movie'; // Ajusta la ruta si es necesario
 
 @Pipe({
-  name: 'filterVehicles',
+  name: 'filterMovies',
   standalone: true
 })
-export class FilterVehiclesPipe implements PipeTransform {
+export class FilterMoviesPipe implements PipeTransform {
 
   transform(value: Movie[], filtro: string): Movie[] {
-    return value.filter(x=> x.title.toLowerCase().includes(filtro) || x.thema.toLocaleLowerCase().includes(filtro))
+    if (!value || !filtro) {
+      return value;
+    }
+
+    const filtroLower = filtro.toLowerCase();
+
+    return value.filter(movie =>
+      movie.title.toLowerCase().includes(filtroLower) ||
+      movie.thema.toLowerCase().includes(filtroLower)
+    );
   }
 
-}
-*/
-
+}*/

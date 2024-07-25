@@ -1,0 +1,11 @@
+<div class="container mt-4">
+  <h1>Catálogo de Películas ({{ movies.length }})</h1>
+  <div class="input-group mb-3">
+    <span class="input-group-text">
+      <i class="fa fa-filter"></i>
+    </span>
+    <input type="text" class="form-control" placeholder="Filtrar películas...">
+  </div>
+  
+  <div class="row" [innerHTML]="moviesHtml"></div>
+</div>
