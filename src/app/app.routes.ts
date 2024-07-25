@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 // Importacion de componentes
 import { HomeComponent } from './pages/home/home.component';
-import { HomeLoggedComponent } from './pages/home/home-logged/home-logged.component';
+import { HomeCatalogueComponent } from './pages/home/home-catalogue/home-catalogue.component';
 import { RentComponent } from './pages/rent/rent.component';
 import { MeComponent } from './pages/me/me.component';
 import { MyBookingsComponent } from './pages/me/my-bookings/my-bookings.component';
@@ -13,8 +13,8 @@ import { UsersComponent } from './pages/admin/users/users.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 // importacion de guardas
-import { isLoggedGuard } from './guards/is-logged.guard';
-import { isNotLoggedGuard } from './guards/is-not-logged.guard';
+import { isLoggedInGuard } from './guards/is-logged.guard';
+import { isNotLoggedInGuard } from './guards/is-not-logged.guard';
 
 export const routes: Routes = [
     {
@@ -23,28 +23,28 @@ export const routes: Routes = [
     },
     {
         path: "my-home",
-        component: HomeLoggedComponent,
-        canActivate: [isLoggedGuard],
+        component: HomeCatalogueComponent,
+        canActivate: [isLoggedInGuard],
     },
     {
         path: "login",
         component: LoginComponent,
-        canActivate: [isNotLoggedGuard]
+        canActivate: [isNotLoggedInGuard]
     },
     {
         path: "signup",
         component: SignupComponent,
-        canActivate: [isNotLoggedGuard]
+        canActivate: [isNotLoggedInGuard]
     },
-    {
+    { 
         path: "rent/:id",
         component: RentComponent,
-        canActivate: [isLoggedGuard],
+        canActivate: [isLoggedInGuard],
     },
     {
         path: "me",
         component: MeComponent,
-        canActivate: [isLoggedGuard],
+        canActivate: [isLoggedInGuard],
         children:[
             {
                 path: "my-bookings",
@@ -59,14 +59,14 @@ export const routes: Routes = [
     {
         path: "admin",
         component: AdminComponent,
-        canActivate: [isLoggedGuard],
+        canActivate: [isLoggedInGuard],
         children:[
             {
                 path: "bookings",
                 component: BookingsComponent
             },
             {
-                path: "vehicles",
+                path: "catalogue",
                 component: CatalogueComponent
             },
             {
