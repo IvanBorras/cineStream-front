@@ -9,6 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { SeriesService } from '../../services/series.service';
 import { BookingService } from '../../services/booking.service';
 import { BookingFormData } from '../../interfaces/booking-form-data';
+import { Series } from '../../interfaces/series';
 
 @Component({
   selector: 'app-rent',
@@ -47,14 +48,23 @@ export class RentComponent implements OnDestroy {
       this.parametro = params.get('id');
     });
 
-    /*if (this.parametro !== null) {
-      vehicleService.getById(this.parametro).subscribe({
+    if (this.parametro !== null) {
+      movieService.getById(this.parametro).subscribe({
         next: (response) => {
-          this.vehicle = response as Vehicle;
+          this.movie = response as Movie;
         },
         error: () => {},
       });
-    }*/
+    }
+
+    if (this.parametro !== null) {
+      seriesService.getById(this.parametro).subscribe({
+        next: (response) => {
+          this.series = response as Series;
+        },
+        error: () => {},
+      });
+    }
   }
 
   ngOnDestroy(): void {
@@ -83,7 +93,7 @@ export class RentComponent implements OnDestroy {
     }
  }
 
- /*enviar(){
+ enviar(){
   this.bookingService.saveBooking(this.vehicle!._id, this.form.value.fechaInicio,
     this.form.value.fechaFin, this.numDias * this.vehicle!.pricePerDay, 0).subscribe({
       next: ()=>{
@@ -108,5 +118,5 @@ export class RentComponent implements OnDestroy {
         })
       }
     })
- }*/
+ }
 }
