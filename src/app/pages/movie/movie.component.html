@@ -1,4 +1,4 @@
-<h1>Gestión de Vehículos ({{ movies.length }})</h1>
+<h1>Peliculas ({{ movies.length }})</h1>
 <div class="input-group mb-3">
   <span class="input-group-text">
     <i class="fa fa-filter"></i>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">Año {{ movie.year }}</small>
-                    <p class="card-text">{{ movie.pricePerDay }} por día</p>
+                    <p class="card-text">{{ movie.pricePerDay | divisa }} Por día </p>
                     <p class="card-text">{{ movie.valoration }} ★</p>
                 </div>
             </div>

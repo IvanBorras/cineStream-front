@@ -1,14 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { SeriesService } from '../../services/series.service'; // Asegúrate de que la ruta sea correcta
-import { Series } from '../../interfaces/series'; // Asegúrate de que la ruta sea correcta
+import { SeriesService } from '../../services/series.service'; 
+import { Series } from '../../interfaces/series'; 
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FilterSeriesPipe } from '../../pipes/filter-series.pipe';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DivisaPipe } from '../../pipes/divisa.pipe';
+
 
 @Component({
   selector: 'app-series',
+  standalone: true,
+  imports: [FormsModule, CommonModule, FilterSeriesPipe, DivisaPipe],
   templateUrl: './series.component.html',
   styleUrls: ['./series.component.css']
 })
 export class SeriesComponent implements OnInit {
   series: Series[] = [];
+  filtro: string = '';
   seriesHtml: string = ''; 
 
   constructor(private seriesService: SeriesService) {}
@@ -28,19 +37,6 @@ export class SeriesComponent implements OnInit {
   generateSeriesHtml(): void {
     this.seriesHtml = '';
 
-    for (const serie of this.series) {
-      this.seriesHtml += `
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <img src="${serie.image}" class="card-img-top" alt="${serie.title}">
-            <div class="card-body">
-              <h5 class="card-title">${serie.title}</h5>
-              <p class="card-text">Año: ${serie.year}</p>
-              <p class="card-text">Género: ${serie.thema}</p>
-            </div>
-          </div>
-        </div>
-      `;
-    }
+   
   }
 }

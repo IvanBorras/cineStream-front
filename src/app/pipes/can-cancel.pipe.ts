@@ -1,4 +1,4 @@
-/*
+
 
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -14,12 +14,6 @@ export class CanCancelPipe implements PipeTransform {
 
 }
 
-
-esta pipe solo sirve para cancelar reservas por fechas , nos sirve ? 
- 
- si la queremos usar habria que meterla en bookings.html y bookings.ts dentro de los imports
-
-*/
 
 
 

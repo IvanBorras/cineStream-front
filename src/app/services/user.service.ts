@@ -12,7 +12,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  getAllUsers(): Observable<User[]> {
+  getUsers(): Observable<User[]> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.authService.user?.token}`,
     });

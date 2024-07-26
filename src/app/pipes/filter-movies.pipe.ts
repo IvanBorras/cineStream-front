@@ -9,7 +9,7 @@ import { Movie } from '../interfaces/movie';
 export class FilterMoviesPipe implements PipeTransform {
 
   transform(value: Movie[], filtro: string): Movie[] {
-    return value.filter(x=> x.thema || x.title)
+    return value.filter(x=> x.title.toLowerCase().includes(filtro) || x.thema.toLocaleLowerCase().includes(filtro))
   }
 
 }

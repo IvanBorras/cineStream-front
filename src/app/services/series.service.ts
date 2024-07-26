@@ -8,7 +8,7 @@ import { Series } from '../interfaces/series';
   providedIn: 'root'
 })
 export class SeriesService {
-  private url = 'http://localhost:4040/api/series'; // Cambia la URL si es necesario
+  private url = 'http://localhost:4040/api/series'; 
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
