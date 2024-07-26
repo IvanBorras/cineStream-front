@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { Movie } from '../interfaces/movie';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,15 +29,15 @@ export class MovieService {
     return this.http.get<Movie>(`${this.url}/${id}`, { headers: this.getAuthHeaders() });
   }
 
-  addVehicle(vehicle: Movie): Observable<Movie> {
-    return this.http.post<Movie>(this.url, vehicle, { headers: this.getAuthHeaders() });
+  addMovie(movie: Movie): Observable<Movie> {
+    return this.http.post<Movie>(this.url, movie, { headers: this.getAuthHeaders() });
   }
 
-  updateVehicle(id: string, vehicle: Movie): Observable<any> {
-    return this.http.patch(`${this.url}/${id}`, vehicle, { headers: this.getAuthHeaders() });
+  updateMovie(id: string, movie: Movie): Observable<any> {
+    return this.http.patch(`${this.url}/${id}`, movie, { headers: this.getAuthHeaders() });
   }
 
-  deleteVehicle(id: string): Observable<any> {
+  deleteMovie(id: string): Observable<any> {
     return this.http.delete(`${this.url}/${id}`, { headers: this.getAuthHeaders() });
   }
 }

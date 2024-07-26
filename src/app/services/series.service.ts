@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { Series } from '../interfaces/series';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,7 +37,4 @@ export class SeriesService {
     return this.http.patch(`${this.url}/${id}`, series, { headers: this.getAuthHeaders() });
   }
 
-  deleteSeries(id: string): Observable<any> {
-    return this.http.delete(`${this.url}/${id}`, { headers: this.getAuthHeaders() });
-  }
 }
