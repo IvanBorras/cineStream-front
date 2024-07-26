@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { SeriesService } from '../../services/series.service'; 
 import { Series } from '../../interfaces/series'; 
 import { FormsModule } from '@angular/forms';

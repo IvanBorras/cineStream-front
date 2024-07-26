@@ -1,3 +1,5 @@
+
+
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DivisaPipe } from './../../pipes/divisa.pipe';
 import { Component, OnDestroy } from '@angular/core';
@@ -6,7 +8,7 @@ import { Movie } from '../../interfaces/movie';
 import { MovieService } from '../../services/movie.service';
 import { AuthService } from '../../services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
-import { SerieService } from '../../services/series.service';
+import { SeriesService } from '../../services/series.service';
 import { BookingService } from '../../services/booking.service';
 import { BookingFormData } from '../../interfaces/booking-form-data';
 import { Series } from '../../interfaces/series';
@@ -29,7 +31,7 @@ export class RentComponent implements OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieService,
-    private seriesService: SerieService,
+    private SeriesService: SeriesService,
     private builder: FormBuilder,
     public authService: AuthService,
     private cookieService: CookieService,
@@ -60,7 +62,7 @@ export class RentComponent implements OnDestroy {
     }
 
     if (this.parametro !== null) {
-      seriesService.getById(this.parametro).subscribe({
+      SeriesService.getById(this.parametro).subscribe({
         next: (response) => {
           this.series = response as Series;
         },
