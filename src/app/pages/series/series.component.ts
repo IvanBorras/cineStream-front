@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SeriesService } from '../../services/series.service'; // Asegúrate de que la ruta sea correcta
+import { SerieService } from '../../services/series.service'; // Asegúrate de que la ruta sea correcta
 import { Series } from '../../interfaces/series'; // Asegúrate de que la ruta sea correcta
 
 @Component({
@@ -11,7 +11,7 @@ export class SeriesComponent implements OnInit {
   series: Series[] = [];
   seriesHtml: string = ''; 
 
-  constructor(private seriesService: SeriesService) {}
+  constructor(private seriesService: SerieService) {}
 
   ngOnInit(): void {
     this.seriesService.getAll().subscribe({
@@ -19,8 +19,8 @@ export class SeriesComponent implements OnInit {
         this.series = data;
         this.generateSeriesHtml();
       },
-      error: (err) => {
-        console.error('Error series', err);
+      error: () => {
+        console.error('Error series');
       }
     });
   }
