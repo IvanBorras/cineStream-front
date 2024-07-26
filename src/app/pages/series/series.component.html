@@ -25,6 +25,7 @@
                     <small class="text-muted">Año {{ series.year }}</small>
                     <p class="card-text">{{ series.pricePerDay | divisa }} Por día </p>
                     <p class="card-text">{{ series.valoration }} ★</p>
+                    <a [routerLink]="'/rent/'+series._id" class="btn btn-outline-primary" style="display: block">Alquilar</a>
                 </div>
             </div>
         </li>

@@ -25,7 +25,9 @@
                     <small class="text-muted">Año {{ movie.year }}</small>
                     <p class="card-text">{{ movie.pricePerDay | divisa }} Por día </p>
                     <p class="card-text">{{ movie.valoration }} ★</p>
+                    <a [routerLink]="'/rent/'+movie._id" class="btn btn-outline-primary" style="display: block">Alquilar</a>
                 </div>
+
             </div>
         </li>
     }
