@@ -19,8 +19,8 @@ export class SeriesComponent implements OnInit {
         this.series = data;
         this.generateSeriesHtml();
       },
-      error: () => {
-        console.error('Error series');
+      error: (err) => {
+        console.error('Error series', err);
       }
     });
   }
