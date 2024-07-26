@@ -123,4 +123,31 @@ export class RentComponent implements OnDestroy {
       }
     })
  }
+
+ enviarSerie(){
+  this.bookingService.saveSeriesBooking(this.series!._id, this.form.value.fechaInicio,
+    this.form.value.fechaFin, this.numDias * this.series!.pricePerDay, 0).subscribe({
+      next: ()=>{
+        Swal.fire({
+          title: "Reserva realizada",
+          text: `Tu reserva de ${this.series!.title} está lista`,
+          icon: "success",
+          timer: 2000,
+          didClose: ()=>{
+            this.router.navigateByUrl("/me/my-bookings")
+          }
+        })
+        
+      },
+      error: ()=>{
+        Swal.fire({
+          title: "Oops",
+          text: "Ha ocurrido un error con tu reserva",
+          icon: "error",
+          timer: 2000,
+          showConfirmButton: false,
+        })
+      }
+    })
+ }
 }
