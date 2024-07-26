@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-// Importacion de componentes
+
+// Importación de componentes
 import { HomeComponent } from './pages/home/home.component';
 import { HomeCatalogueComponent } from './pages/home/home-catalogue/home-catalogue.component';
 import { RentComponent } from './pages/rent/rent.component';
@@ -12,9 +13,14 @@ import { CatalogueComponent } from './pages/admin/catalogue/catalogue.component'
 import { UsersComponent } from './pages/admin/users/users.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
-// importacion de guardas
+
+// Importación de guardas
 import { isLoggedInGuard } from './guards/is-logged.guard';
 import { isNotLoggedInGuard } from './guards/is-not-logged.guard';
+
+// Importación de nuevos componentes
+import { MoviesComponent } from './pages/movie/movie.component';
+import { SeriesComponent } from './pages/series/series.component';
 
 export const routes: Routes = [
     {
@@ -74,7 +80,18 @@ export const routes: Routes = [
                 component: UsersComponent
             },
         ]
+    },
+    {
+        path: "catalogue",
+        children: [
+            {
+                path: "movies",
+                component: MoviesComponent
+            },
+            {
+                path: "series",
+                component: SeriesComponent
+            }
+        ]
     }
-
-
 ];

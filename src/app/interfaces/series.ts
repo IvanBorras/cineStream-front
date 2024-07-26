@@ -1,4 +1,5 @@
 export interface Series {
+
     _id: string,  
     title: string;
     director: string,
@@ -12,5 +13,5 @@ export interface Series {
     trailer: string,
     pricePerDay: number,
     available: boolean
-  }
 
+}
