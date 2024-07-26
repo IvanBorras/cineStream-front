@@ -9,7 +9,7 @@ import { Movie } from '../interfaces/movie';
   providedIn: 'root'
 })
 export class MovieService {
-  private url = 'http://localhost:4040/api/films';
+  private url = 'http://localhost:4040/api/movies';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
