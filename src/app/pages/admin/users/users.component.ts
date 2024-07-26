@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
   }
 
   loadUsers() {
-    this.userService.getAllUsers().subscribe({
+    this.userService.getUsers().subscribe({
       next: (response: User[]) => {
         this.users = response as User[];
       },
