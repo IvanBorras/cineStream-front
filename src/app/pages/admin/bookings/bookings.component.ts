@@ -19,9 +19,10 @@ export class BookingsComponent {
 
 
   constructor(private bookingService: BookingService, private authService: AuthService){
-    this.bookingService.getAllBookings().subscribe({
+    this.bookingService.getBookings().subscribe({
       next: (response)=>{
         this.bookings = response as Booking[]
+        console.log(this.bookings)
       },
       error: ()=>{
 
@@ -71,8 +72,18 @@ export class BookingsComponent {
     const reservaEditar: Booking | undefined = this.bookings.find(x => x._id === bookingId);
     if (reservaEditar) {
       console.log('Editar reserva:', reservaEditar)
+      let title = '';
+      if (reservaEditar.serie) {
+        title = reservaEditar.serie.title;
+      } else {
+        title = '';
+      }
+      const movieTitle = reservaEditar.movie?.title ?? '';
+      const serieTitle = reservaEditar.serie?.title ?? '';
+     
       Swal.fire({
-        title: `Editar reserva del ${reservaEditar.movie.title} ${reservaEditar.series.title}`,
+        title: `Editar reserva de: <br> ${movieTitle} ${title}`,
+        
         html: `<div>
           <div>
             <label class="form-label">Fecha inicio</label>
