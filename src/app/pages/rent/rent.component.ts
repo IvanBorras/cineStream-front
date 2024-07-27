@@ -36,7 +36,7 @@ export class RentComponent implements OnDestroy {
     private bookingService: BookingService,
     private router: Router
   ) {
-    let data: BookingFormData = { startDate: null, endDate: null, promoCode: null };
+    let data: BookingFormData = { startDate: null, endDate: null };
     if (cookieService.check("booking-form-data")) {
       data = JSON.parse(cookieService.get("booking-form-data"));
     }
@@ -80,7 +80,7 @@ export class RentComponent implements OnDestroy {
     const data: BookingFormData = {
       endDate: this.form.value.fechaFin,
       startDate: this.form.value.fechaInicio,
-      promoCode: this.form.value.codigoPromocional
+      
     };
     this.cookieService.set("booking-form-data", JSON.stringify(data));
   }
@@ -96,7 +96,7 @@ export class RentComponent implements OnDestroy {
   enviarPelicula(): void {
     if (this.movie) {
       this.bookingService.saveMovieBooking(this.movie._id, this.form.value.fechaInicio,
-        this.form.value.fechaFin, this.numDias * this.movie.pricePerDay, 0).subscribe({
+        this.form.value.fechaFin, this.numDias * this.movie.pricePerDay).subscribe({
           next: () => {
             Swal.fire({
               title: "Reserva realizada",
@@ -124,7 +124,7 @@ export class RentComponent implements OnDestroy {
   enviarSerie(): void {
     if (this.series) {
       this.bookingService.saveSeriesBooking(this.series._id, this.form.value.fechaInicio,
-        this.form.value.fechaFin, this.numDias * this.series.pricePerDay, 0).subscribe({
+        this.form.value.fechaFin, this.numDias * this.series.pricePerDay).subscribe({
           next: () => {
             Swal.fire({
               title: "Reserva realizada",

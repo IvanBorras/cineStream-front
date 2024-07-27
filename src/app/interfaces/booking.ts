@@ -10,5 +10,5 @@ export interface Booking {
     startDate: string
     endDate: string
     price: number
-    discount: number
+    
 }

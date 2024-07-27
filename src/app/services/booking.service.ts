@@ -30,7 +30,7 @@ export class BookingService {
     sDate: string,
     eDate: string,
     price: number,
-    discount: number
+    
   ) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.authService.user?.token}`,
@@ -38,11 +38,12 @@ export class BookingService {
     
 
     return this.http.post(this.url, {
-      movie: movieId,
+      type: 'movie',
+      item: movieId,
       startDate: sDate,
       endDate: eDate,
       price: price,
-      discount: discount,
+      
     }, {headers});
   }
 
@@ -51,7 +52,7 @@ export class BookingService {
     sDate: string,
     eDate: string,
     price: number,
-    discount: number
+    
   ) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.authService.user?.token}`,
@@ -59,11 +60,12 @@ export class BookingService {
     
 
     return this.http.post(this.url, {
-      serie: seriesId,
+      type: 'serie',
+      item: seriesId,
       startDate: sDate,
       endDate: eDate,
       price: price,
-      discount: discount,
+      
     }, {headers});
   }
 

@@ -10,8 +10,8 @@ export interface Series {
     image: string,
     valoration: number,
     ageRestriction: string,
-    trailer: string,
+    trailer?: string,
     pricePerDay: number,
-    available: boolean
+    
 
 }

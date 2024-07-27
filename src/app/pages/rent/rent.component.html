@@ -2,7 +2,7 @@
  
   <div class="col-md-5" *ngIf="movie || series">
     <div *ngIf="movie; else seriesDetails">
-      <img [src]="movie.trailer" width="350" alt="" />
+      <!-- <img [src]="movie.trailer" width="350" alt="" /> -->
       <p>{{ movie.title }}</p>
       <p>{{ movie.year }}</p>
       <p>{{ movie.thema }}</p>
@@ -12,7 +12,7 @@
       <p>Valoración: {{ movie.valoration }}</p>
     </div>
     <ng-template #seriesDetails>
-      <img [src]="series?.trailer" width="350" alt="" />
+      <!-- <img [src]="series?.trailer" width="350" alt="" /> -->
       <p>{{ series?.title }}</p>
       <p>{{ series?.year }}</p>
       <p>{{ series?.thema }}</p>
