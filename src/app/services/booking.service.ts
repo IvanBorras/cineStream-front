@@ -18,7 +18,7 @@ export class BookingService {
     return this.http.get(`${this.url}/user/${userId}`, { headers });
   }
 
-  getAllBookings(): Observable<Booking[]> {
+  getBookings(): Observable<Booking[]> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.authService.user?.token}`,
     });
@@ -72,17 +72,17 @@ export class BookingService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.authService.user?.token}`,
     });
-    return this.http.delete(`${this.url}/${bookingId}`,{headers})
+    return this.http.delete(`${this.url}/${this.authService.user?.id}/${bookingId}`,{headers})
   }
 
-  updateBooking(bookingId: string, startDate: string, endDate: string) {
+  updateBooking(bookingId: string, startDate: string,  endDate: string) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.authService.user?.token}`,
     });
-    const dates = {
-      startDate: startDate,
-      endDate: endDate
-    };
-    return this.http.put(`${this.url}/${bookingId}`, dates, { headers });
+   return this.http.patch<Booking>(`${this.url}/${this.authService.user?.id}/${bookingId}`, {
+      startDate,
+      endDate,
+    }, { headers });
   }
 }
+  
