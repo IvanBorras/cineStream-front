@@ -6,7 +6,7 @@ export interface Booking {
     _id: string
     user: User
     movie: Movie
-    series: Series
+    serie: Series
     startDate: string
     endDate: string
     price: number

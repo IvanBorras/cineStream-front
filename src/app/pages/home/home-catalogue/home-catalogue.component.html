@@ -1,4 +1,4 @@
-<h1>catalogo de peliculas ({{ movies.length }})</h1>
+<!-- <h1>catalogo de peliculas ({{ movies.length }})</h1>
 <div class="input-group mb-3">
   <span class="input-group-text">
     <i class="fa fa-filter"></i>
@@ -7,28 +7,22 @@
 </div>
  
 <ul class="row list-unstyled">
-    @for(movie of movies; track movie){
+    @for(movie of (movies | filtermovies: filtro); track movie){
         <li class="col-md-6 col-sm-12 col-lg-3 my-1">
             <div class="card h-100" >
-                <!-- <img [src]="movies.image" width="200" class="card-img-top" alt="..."> -->
+                <img [src]="movie.image" width="200" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{movie.title}}</h5>
                   <p class="card-text">{{movie.synopsis}}</p>
-                  <!-- <p class="card-text">{{movie.pricePerDay | divisa}} por día</p> -->
-                  
-                  @if(movie.available){
-                    <!-- <a [routerLink]="'/rent/'+movie._id"  class="btn btn-outline-primary">Alquilar</a> -->
-                  }
-                  @else {
-                    <span class="sin-stock">Sin stock</span>
-                  }
+                  <p class="card-text">{{movie.pricePerDay | divisa}} por día</p>
                 </div>
                 <div class="card-footer">
-                     <!-- <small class="text-muted">Modelo del año {{movie.year}}</small> -->
+                  <small class="text-muted">Año{{movie.year}}</small>
                 </div>
+                <span><a [routerLink]="'/rent/'+movie._id" class="btn btn-outline-primary" style="display: block">Alquilar</a></span>
             </div>
         </li>
     }
  
 </ul>
-
+ -->
