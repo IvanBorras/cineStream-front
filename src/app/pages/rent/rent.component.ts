@@ -25,7 +25,6 @@ export class RentComponent implements OnDestroy {
   parametro: string | null = null;
   movie: Movie | null = null;
   series: Series | null = null;
-  mostrarCodigoPromocional: boolean = false;
   form!: FormGroup;
 
   constructor(
@@ -45,7 +44,6 @@ export class RentComponent implements OnDestroy {
     this.form = builder.group({
       "fechaInicio": new FormControl(data.startDate, [Validators.required]),
       "fechaFin": new FormControl(data.endDate, [Validators.required]),
-      "codigoPromocional": new FormControl(data.promoCode, []),
     });
 
     route.paramMap.subscribe((params) => {
